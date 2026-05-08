@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GL - AutoCar - Luxury</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-car-side"></i> GL - AutoCar
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#Galeria">Gallery</a></li>
+                    <li><a href="#Sobre">About</a></li>
+                </ul>
+                <a href="https://wa.me/5511975014696" target="_blank" class="contact-btn">Fale Conosco</a>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Luxury <br>Lifestyle</h1>
+                <p>Enjoy the most luxurious experience with our premium fleet.</p>
+            </div>
+        </div>
+    </section>
+    <section id="Galeria" class="specials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Specials Offers</h2>
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">View All Cars</button>
+                    <button class="filter-btn" data-filter="suv">SUV</button>
+                    <button class="filter-btn" data-filter="sedan">SEDAN</button>
+                </div>
+            </div>
+            <div class="cars-grid">
+                <div class="car-card filter-item suv">
+                    <img src="img/lineup-suvs-26-escalade-iql-l-v3.avif" alt="Escalade IQL" class="car-image">
+                    <div class="car-info">
+                        <div>
+                            <div class="car-name">Escalade IQL</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="car-price">R$5.500.000</div>
+                    </div>
+                    <button type="button" onclick="window.location.href='carro.html?id=iql'">Ver mais</button>
+                </div>
+                <div class="car-card filter-item suv">
+                    <img src="img/lineup-suvs-25-escalade-esv-v-l.avif" alt="Escalade-V ESV" class="car-image">
+                    <div class="car-info">
+                        <div>
+                            <div class="car-name">Escalade-V ESV</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="car-price">R$3.500.000</div>
+                    </div>
+                     <button type="button" onclick="window.location.href='carro.html?id=esv'">Ver mais</button>
+                </div>
+                <div class="car-card filter-item suv">
+                    <img src="img/lineup-suvs-25-escalade-v-series-l-v2.avif" alt="Escalade-V" class="car-image">
+                    <div class="car-info">
+                        <div>
+                            <div class="car-name">Escalade-V</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="car-price">R$1.500.000</div>
+                    </div>
+                     <button type="button" onclick="window.location.href='carro.html?id=v'">Ver mais</button>
+                </div>
+                <div class="car-card filter-item sedan">
+                    <img src="img/vehicles-nav-sedans-26-ct4.avif" alt="CT4" class="car-image">
+                    <div class="car-info">
+                        <div>
+                            <div class="car-name">CT4</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="car-price">R$700.000</div>
+                    </div>
+                     <button type="button" onclick="window.location.href='carro.html?id=ct4'">Ver mais</button>
+                </div>
+                <div class="car-card filter-item sedan">
+                    <img src="img/vehicles-sedans-26-ct4-v.avif" alt="CT4 V-Series" class="car-image">
+                    <div class="car-info">
+                        <div>
+                            <div class="car-name">CT4 V-Series</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="car-price">R$1.000.000</div>
+                    </div>
+                     <button type="button" onclick="window.location.href='carro.html?id=ct4v'">Ver mais</button>
+                </div>  
+            </div>
+        </div>
+    </section>
+    <section class="promo">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-img">
+                    <img src="img/vehicles-sedans-26-ct4-v.avif" alt="CT4 V-Series">
+                </div>
+                <div class="promo-text">
+                    <h2>CT4 <br>V-SERIES</h2>
+                    <a id="carro." href='carro.html?id=ct4v' class="follow-link">About</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Sobre" class="about">
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-text">
+                    <h2>Luxury Car in Extrema</h2>
+                    <p>A small city named Extrema flows by their place and supplies it with the necessary regelialia. It is a paradise for car enthusiasts.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>Motors</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-gem"></i>
+                            <span>Pick up</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>Luxury</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-images">
+                    <img src="img/my25-ct4-v-gallery-exterior-modal-passenger-side-front.avif" class="img-overlap-1" alt="CT4 Exterior">
+                    <img src="img/my26-ct4-v-mov-gallery-modal-interior-seating.avif" class="img-overlap-2" alt="CT4 Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <i class="fas fa-car-side"></i> GL - AUTOCAR
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://wa.me/5511975014696"  target="_blank" class="fab fa-whatsapp"></i></a>
+                        <a class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/fronty_digital?igsh=MXB3YXYxNG94MHR2OA%3D%3D&utm_source=qr" target="_blank" class="fab fa-instagram"></i></a>
+                        <a class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col contact-info">
+                    <h3>BR - Extrema</h3>
+                    <p>+55 11 97501-4696</p>
+                    <p>info-cars@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                Copyright ©️ 2025 Cars. Developed by You.
+            </div>
+        </div>
+    </footer>
+    <script src="style2.js"></script>
+</body>
+</html>

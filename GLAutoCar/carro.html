@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Veículo</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        /* Foto grande */
+        .car-hero {
+            width: 100%;
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .car-hero img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Título e preço */
+        .car-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .car-title {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .car-price {
+            font-size: 28px;
+            opacity: 0.8;
+        }
+
+        .stars {
+            color: gold;
+            margin-top: 10px;
+        }
+
+        /* Descrição */
+        .description {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        /* Ficha técnica */
+        .specs {
+            background: #111;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .specs h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            font-size: 18px;
+        }
+
+        .spec-item span {
+            display: block;
+            opacity: .7;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Botão WhatsApp */
+        .whatsapp {
+            display: inline-block;
+            margin-left: 20px;
+            padding: 12px 25px;
+            background: #25D366;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .whatsapp:hover {
+            filter: brightness(0.9);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- FOTO DO CARRO -->
+    <div class="car-hero">
+        <img id="car-img" src="" alt="Carro">
+    </div>
+
+    <!-- TÍTULO E PREÇO -->
+    <div class="car-header">
+        <div>
+            <div id="car-title" class="car-title"></div>
+            <div class="stars" id="car-stars"></div>
+        </div>
+        <div id="car-price" class="car-price"></div>
+    </div>
+
+    <!-- DESCRIÇÃO -->
+    <p class="description" id="car-desc"></p>
+
+    <!-- FICHA TÉCNICA -->
+    <div class="specs">
+        <h2>Ficha Técnica</h2>
+        <div class="specs-grid" id="spec-list">
+        </div>
+    </div>
+
+    <!-- BOTÕES -->
+    <a href="index.html" class="back-btn">Voltar</a>
+    <a href="https://wa.me/5511975014696" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+    </a>
+
+</div>
+
+<script>
+    // Pegando ID da URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    // BANCO DE DADOS DOS CARROS
+    const cars = {
+        "iql": {
+            nome: "Escalade IQL",
+            preco: "R$ 5.500.000",
+            img: "img/lineup-suvs-26-escalade-iql-l-v3.avif",
+            estrelas: 4,
+            desc: "A Escalade IQL é uma SUV de luxo com tecnologia avançada, interior premium e presença imponente.",
+            specs: {
+                Motor: "6.2L V8 Supercharged",
+                Potência: "682 cv",
+                Torque: "89.9 kgfm",
+                de0a100: "4.4 segundos",
+                Velocidade_Max: "250 km/h",
+                Autonomia: "600 km",
+                Tração: "AWD",
+                Transmissão: "Automática de 10 velocidades"
+            }
+        },
+
+        "esv": {
+            nome: "Escalade-V ESV",
+            preco: "R$ 3.500.000",
+            img: "img/lineup-suvs-25-escalade-esv-v-l.avif",
+            estrelas: 5,
+            desc: "A versão ESV possui espaço adicional, performance absurda e acabamento ultra premium.",
+            specs: {
+                Motor: "6.2L V8",
+                Potência: "420 cv",
+                Torque: "63 kgfm",
+                de0a100: "6.1 segundos",
+                Velocidade_Max: "230 km/h",
+                Autonomia: "550 km",
+                Tração: "4x4",
+                Transmissão: "Automática"
+            }
+        },
+
+        "v": {
+            nome: "Escalade-V",
+            preco: "R$ 1.500.000",
+            img: "img/lineup-suvs-25-escalade-v-series-l-v2.avif",
+            estrelas: 4,
+            desc: "A versão V traz mais esportividade, visual agressivo e uma dirigibilidade impressionante.",
+            specs: {
+                Motor: "6.2L V8",
+                Potência: "420 cv",
+                Torque: "63 kgfm",
+                de0a100: "5.7 segundos",
+                Velocidade_Max: "230 km/h",
+                Autonomia: "580 km",
+                Tração: "AWD",
+                Transmissão: "Automática"
+            }
+        },
+
+        "ct4": {
+            nome: "Cadillac CT4",
+            preco: "R$ 700.000",
+            img: "img/vehicles-nav-sedans-26-ct4.avif",
+            estrelas: 4,
+            desc: "Sedã esportivo premium com excelente desempenho e acabamento refinado.",
+            specs: {
+                Motor: "2.7L Turbo",
+                Potência: "325 cv",
+                Torque: "52 kgfm",
+                de0a100: "5.2 segundos",
+                Velocidade_Max: "240 km/h",
+                Autonomia: "650 km",
+                Tração: "RWD",
+                Transmissão: "Automática"
+            }
+        },
+
+        "ct4v": {
+            nome: "Cadillac CT4 V-Series",
+            preco: "R$ 1.000.000",
+            img: "img/vehicles-sedans-26-ct4-v.avif",
+            estrelas: 4,
+            desc: "Versão V-Series mais potente, com performance elevada e dinâmica esportiva.",
+            specs: {
+                Motor: "3.6L Twin Turbo V6",
+                Potência: "472 cv",
+                Torque: "61 kgfm",
+                de0a100: "4.2 segundos",
+                Velocidade_Max: "260 km/h",
+                Autonomia: "620 km",
+                Tração: "AWD",
+                Transmissão: "Automática"
+            }
+        }
+    };
+
+    const car = cars[id];
+
+    document.getElementById("car-title").innerText = car.nome;
+    document.getElementById("car-img").src = car.img;
+    document.getElementById("car-price").innerText = car.preco;
+    document.getElementById("car-desc").innerText = car.desc;
+
+    // Estrelas
+    document.getElementById("car-stars").innerHTML =
+        "★".repeat(car.estrelas) + "☆".repeat(5 - car.estrelas);
+
+    // Ficha técnica
+    let specsHTML = "";
+    for (let key in car.specs) {
+        specsHTML += `<div class="spec-item"><span>${key.replace(/_/g, " ")}</span>${car.specs[key]}</div>`;
+    }
+    document.getElementById("spec-list").innerHTML = specsHTML;
+
+</script>
+
+</body>
+</html>
